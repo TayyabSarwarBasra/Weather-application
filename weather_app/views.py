@@ -15,7 +15,7 @@ def fetch_forecast_data(lat, lon, api_key, forecast_url):
     return response.json()
 
 async def index(request):
-    api_key = 'ab6e2f84bae424fb63597d5a13f2b3cc'
+    api_key = '<API KEY>'
     current_weather_url = 'https://api.openweathermap.org/data/2.5/weather?q={}&appid={}'
     forecast_url = 'https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude=current,minutely,hourly,alerts&appid={}'
 
