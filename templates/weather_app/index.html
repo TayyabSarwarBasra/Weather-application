@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="city" placeholder="Enter city name">
+  <button type="submit">Get Weather</button>
+</form>
+
+<div class="favorites">
+  <h3>Favorites:</h3>
+  <ul>
+    {% for favorite in favorites %}
+      <li>{{ favorite }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="history">
+  <h3>Search History:</h3>
+  <ul>
+    {% for city in history %}
+      <li>{{ city }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="comparison-container">
+  {% if weather_data %}
+    <div class="city-container">
+      {% include 'weather_app/city_weather.html' with weather_data=weather_data daily_forecasts=daily_forecasts %}
+    </div>
+  {% endif %}
+</div>
+
+</body>
+</html>
