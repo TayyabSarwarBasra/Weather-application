@@ -1,6 +1,6 @@
 # Weather-application
 
-#Clone the project
+Clone the project
 
 https://github.com/TayyabSarwarBasra/Weather-application.git
 
